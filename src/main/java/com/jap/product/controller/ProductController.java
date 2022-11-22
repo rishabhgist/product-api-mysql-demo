@@ -1,9 +1,10 @@
 package com.jap.product.controller;
 
+import com.jap.product.domain.Product;
 import com.jap.product.service.ProductService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1")
@@ -12,5 +13,10 @@ public class ProductController {
 
     public ProductController(ProductService productService) {
         this.productService = productService;
+    }
+
+    @PostMapping("/post")
+    public ResponseEntity<?> save(@RequestBody Product product){
+        return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.CREATED);
     }
 }
