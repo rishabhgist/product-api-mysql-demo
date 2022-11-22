@@ -17,16 +17,16 @@ public class ProductService implements IProductService{
 
     @Override
     public Product saveProduct(Product product) {
-        return null;
+        return productRepository.save(product);
     }
 
     @Override
     public List<Product> getAllProduct() {
-        return null;
+        return (List<Product>) productRepository.findAll();
     }
 
     @Override
     public List<Product> getProductByName(String name) {
-        return null;
+        return (List<Product>) productRepository.findByName(name);
     }
 }
