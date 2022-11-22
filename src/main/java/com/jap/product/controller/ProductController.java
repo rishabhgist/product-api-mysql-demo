@@ -19,8 +19,13 @@ public class ProductController {
     public ResponseEntity<?> save(@RequestBody Product product){
         return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.CREATED);
     }
-    @GetMapping("/getAll")
+    @GetMapping("/products")
     public ResponseEntity<?> getAll(){
         return new ResponseEntity<>(productService.getAllProduct(), HttpStatus.OK);
+    }
+
+    @GetMapping("/product/{name}")
+    public ResponseEntity<?> getByName(@PathVariable String name){
+        return new ResponseEntity<>(productService.getProductByName(name), HttpStatus.OK);
     }
 }
