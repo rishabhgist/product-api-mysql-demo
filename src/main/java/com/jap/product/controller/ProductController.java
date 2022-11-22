@@ -2,6 +2,7 @@ package com.jap.product.controller;
 
 import com.jap.product.domain.Product;
 import com.jap.product.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1")
 public class ProductController {
     private ProductService productService;
-
+    @Autowired
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
